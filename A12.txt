@@ -1,0 +1,57 @@
+pip install torch
+import torch
+import numpy as np
+data = [
+[1,2],
+[3,4]
+]
+x = torch.tensor(data)
+print(type(x))
+np_array = np.array(data)
+x_np = torch.from_numpy(np_array)
+print(x_np)
+print(type(x_np))
+x_ones = torch.ones_like(x)
+print("One Tensor: \n",x_ones)
+x_rand = torch.rand_like(x,dtype=torch.float)
+print(x_rand)
+shape = (2, 3)
+random_tensor = torch.rand(shape)
+print(random_tensor)
+print(type(random_tensor))
+
+ones_tensor = torch.ones(shape)
+print(ones_tensor)
+print(type(ones_tensor))
+
+zeros_tensor = torch.zeros(shape)
+print(zeros_tensor)
+print(type(zeros_tensor))
+tensor = torch.rand(3, 4)
+print(tensor)
+print(tensor.shape)
+print(tensor.dtype)
+print(tensor.device)
+if torch.cuda.is_available():
+  tensor = tensor.to('cuda')
+  print("Device tensor is stored in ", tensor.device)
+print(tensor.device)
+tensor = torch.ones(4, 4)
+print(tensor)
+tensor1 = torch.zeros(4, 4)
+print(tensor1)
+tensor2 = torch.cat([tensor, tensor1])
+print(tensor2)
+
+tensor.mul(tensor1)
+tensor * tensor1
+tensor.T
+
+tensor.add_(3)
+print(tensor)
+
+t = torch.ones(5)
+print(t)
+n = t.numpy()
+print(n)
+print(type(n))
